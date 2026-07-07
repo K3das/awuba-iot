@@ -1,0 +1,19 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - "127.0.0.1:1883:1883/tcp"
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    ports:
+      - 8123:8123
+  awuba:
+    build:
+      context: .
+      dockerfile: Containerfile
+    ports:
+      - 7443:7443
+    environment:
+      - AWUBA__APP__ACCESS_TOKEN=12345678
+      - AWUBA__MQTT__BROKER_HOST=mosquitto
+      - AWUBA__MQTT__BROKER_PORT=1883

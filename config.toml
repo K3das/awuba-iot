@@ -1,0 +1,14 @@
+[app]
+# listen_addr = "0.0.0.0:7443"
+access_token = "12345678"
+
+[mqtt]
+broker_host = "127.0.0.1"
+broker_port = 1883
+# broker_username = ""
+# broker_password = ""
+
+# client_id = "awuba-iot"
+
+# discovery_topic_prefix = "homeassistant/"
+# state_topic_prefix = "awuba_iot/"
