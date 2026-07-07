@@ -34,7 +34,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha256,format=long
+            type=raw,value=nightly,enable=${{ github.ref_name == 'main' }}
             type=semver,pattern={{version}},enable=${{ github.event_name == 'release' && !github.event.release.prerelease }}
             type=semver,pattern={{major}}.{{minor}},enable=${{ github.event_name == 'release' && !github.event.release.prerelease }}
             type=semver,pattern={{major}},enable=${{ github.event_name == 'release' && !github.event.release.prerelease }}
